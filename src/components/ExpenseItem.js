@@ -1,4 +1,5 @@
 import './ExpenseItem.css'
+import ExpenseDate from './ExpenseDate'
 import expenses from '../constants/constant'
 
 function ExpenseItem() {
@@ -6,15 +7,7 @@ function ExpenseItem() {
         <>
         {expenses.map(({expenseDate,expenseTitle,expenseAmount},i)=>(
             <div key={i} className="expense-item">
-                <div>
-                    <div>
-                    {expenseDate.toLocaleString('en-US', {month:'long'})}
-                    </div>
-                    <div>
-                    {expenseDate.toLocaleString('en-US', {day:'2-digit'})}
-                    </div>
-                    <div>{expenseDate.getFullYear()}</div>
-                </div>
+                <ExpenseDate date={expenseDate}/>
                 <div className="expense-item__description">
                     <h2>{expenseTitle}</h2>
                 </div>
